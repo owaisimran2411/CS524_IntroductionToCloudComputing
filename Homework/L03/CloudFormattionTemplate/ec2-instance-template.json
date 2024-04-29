@@ -1,0 +1,225 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "Template for launching an Amazon EC2 instance",
+    "Parameters": {
+      "KeyName": {
+        "Description": "Name of EC2 instance",
+        "Type": "AWS::EC2::KeyPair::KeyName",
+        "ConstraintDescription": "must be the name of an existing EC2 KeyPair."
+      },
+      "InstanceType": {
+        "Description": "EC2 instance",
+        "Type": "String",
+        "Default": "t2.micro",
+        "AllowedValues": [
+          "t2.micro"
+        ],
+        "ConstraintDescription": "must be a valid EC2 instance type."
+      }
+    },
+    "Resources": {
+      "EC2Instance1": {
+        "Type": "AWS::EC2::Instance",
+        "Properties": {
+          "InstanceType": {
+            "Ref": "InstanceType"
+          },
+          "SecurityGroups": [
+            "launch-wizard-2"
+          ],
+          "KeyName": {
+            "Ref": "KeyName"
+          },
+          "Tags": [
+            {
+              "Key": "Name",
+              "Value": "Server1"
+            }
+          ]
+            ,
+          "ImageId": "ami-0900fe555666598a2",
+          "UserData": "IyFiaW4vYmFzaApkbmYgaW5zdGFsbCBuZ2lueCAteQpleHBvcnQgSE9TVE5BTUU9JChob3N0bmFtZSAtZikKc2VkIC1pICJzL1dlbGNvbWUgdG8gbmdpbngvT3dhaXMgTmdpbnggU2VydmVyOiAkSE9TVE5BTUUvZyIgL3Vzci9zaGFyZS9uZ2lueC9odG1sL2luZGV4Lmh0bWwKc3lzdGVtY3RsIHN0YXJ0IG5naW54CnN5c3RlbWN0bCBlbmFibGUgbmdpbng="
+        }
+      },
+      "EC2Instance2": {
+        "Type": "AWS::EC2::Instance",
+        "Properties": {
+          "InstanceType": {
+            "Ref": "InstanceType"
+          },
+          "SecurityGroups": [
+            "launch-wizard-2"
+          ],
+          "KeyName": {
+            "Ref": "KeyName"
+          },   
+          "Tags": [
+            {
+              "Key": "Name",
+              "Value": "Server2"
+            }
+          ],
+          "ImageId": "ami-0900fe555666598a2",
+          "UserData": "IyFiaW4vYmFzaApkbmYgaW5zdGFsbCBuZ2lueCAteQpleHBvcnQgSE9TVE5BTUU9JChob3N0bmFtZSAtZikKc2VkIC1pICJzL1dlbGNvbWUgdG8gbmdpbngvT3dhaXMgTmdpbnggU2VydmVyOiAkSE9TVE5BTUUvZyIgL3Vzci9zaGFyZS9uZ2lueC9odG1sL2luZGV4Lmh0bWwKc3lzdGVtY3RsIHN0YXJ0IG5naW54CnN5c3RlbWN0bCBlbmFibGUgbmdpbng="
+        }
+      },
+      "EC2Instance3": {
+        "Type": "AWS::EC2::Instance",
+        "Properties": {
+          "InstanceType": {
+            "Ref": "InstanceType"
+          },
+          "SecurityGroups": [
+            "launch-wizard-2"
+          ],
+          "KeyName": {
+            "Ref": "KeyName"
+          },
+          "Tags": [
+            {
+              "Key": "Name",
+              "Value": "Server3"
+            }
+          ],
+          "ImageId": "ami-0900fe555666598a2",
+          "UserData": "IyFiaW4vYmFzaApkbmYgaW5zdGFsbCBuZ2lueCAteQpleHBvcnQgSE9TVE5BTUU9JChob3N0bmFtZSAtZikKc2VkIC1pICJzL1dlbGNvbWUgdG8gbmdpbngvT3dhaXMgTmdpbnggU2VydmVyOiAkSE9TVE5BTUUvZyIgL3Vzci9zaGFyZS9uZ2lueC9odG1sL2luZGV4Lmh0bWwKc3lzdGVtY3RsIHN0YXJ0IG5naW54CnN5c3RlbWN0bCBlbmFibGUgbmdpbng="
+        }
+      },
+      "EC2Instance4": {
+        "Type": "AWS::EC2::Instance",
+        "Properties": {
+          "InstanceType": {
+            "Ref": "InstanceType"
+          },
+          "SecurityGroups": [
+            "launch-wizard-2"
+          ],
+          "KeyName": {
+            "Ref": "KeyName"
+          },
+          "Tags": [
+            {
+              "Key": "Name",
+              "Value": "Server4"
+            }
+          ],
+          "ImageId": "ami-0900fe555666598a2",
+          "UserData": "IyFiaW4vYmFzaApkbmYgaW5zdGFsbCBuZ2lueCAteQpleHBvcnQgSE9TVE5BTUU9JChob3N0bmFtZSAtZikKc2VkIC1pICJzL1dlbGNvbWUgdG8gbmdpbngvT3dhaXMgTmdpbnggU2VydmVyOiAkSE9TVE5BTUUvZyIgL3Vzci9zaGFyZS9uZ2lueC9odG1sL2luZGV4Lmh0bWwKc3lzdGVtY3RsIHN0YXJ0IG5naW54CnN5c3RlbWN0bCBlbmFibGUgbmdpbng="
+        }
+      },
+      "EC2Instance5": {
+        "Type": "AWS::EC2::Instance",
+        "Properties": {
+          "InstanceType": {
+            "Ref": "InstanceType"
+          },
+          "SecurityGroups": [
+            "launch-wizard-2"
+          ],
+          "KeyName": {
+            "Ref": "KeyName"
+          },
+          "Tags": [
+            {
+              "Key": "Name",
+              "Value": "LoadBalancer"
+            }
+          ],
+          "ImageId": "ami-0900fe555666598a2"
+        }
+      }
+    },
+    "Outputs": {
+      "PublicDNSServerOne": {
+        "Description": "Public DNSName of the newly created EC2 instance",
+        "Value": {
+          "Fn::GetAtt": [
+            "EC2Instance1",
+            "PublicDnsName"
+          ]
+        }
+      },
+      "PublicIPServerOne": {
+        "Description": "Public IP address of the newly created EC2 instance",
+        "Value": {
+          "Fn::GetAtt": [
+            "EC2Instance1",
+            "PublicIp"
+          ]
+        }
+      },
+      "PublicDNSServerTwo": {
+        "Description": "Public DNSName of the newly created EC2 instance",
+        "Value": {
+          "Fn::GetAtt": [
+            "EC2Instance2",
+            "PublicDnsName"
+          ]
+        }
+      },
+      "PublicIPServerTwo": {
+        "Description": "Public IP address of the newly created EC2 instance",
+        "Value": {
+          "Fn::GetAtt": [
+            "EC2Instance2",
+            "PublicIp"
+          ]
+        }
+      },
+      "PublicDNSServerThree": {
+        "Description": "Public DNSName of the newly created EC2 instance",
+        "Value": {
+          "Fn::GetAtt": [
+            "EC2Instance3",
+            "PublicDnsName"
+          ]
+        }
+      },
+      "PublicIPServerThree": {
+        "Description": "Public IP address of the newly created EC2 instance",
+        "Value": {
+          "Fn::GetAtt": [
+            "EC2Instance3",
+            "PublicIp"
+          ]
+        }
+      },
+      "PublicDNSServerFour": {
+        "Description": "Public DNSName of the newly created EC2 instance",
+        "Value": {
+          "Fn::GetAtt": [
+            "EC2Instance4",
+            "PublicDnsName"
+          ]
+        }
+      },
+      "PublicIPServerFour": {
+        "Description": "Public IP address of the newly created EC2 instance",
+        "Value": {
+          "Fn::GetAtt": [
+            "EC2Instance4",
+            "PublicIp"
+          ]
+        }
+      },
+      "PublicDNSServerFive": {
+        "Description": "Public DNSName of the newly created EC2 instance",
+        "Value": {
+          "Fn::GetAtt": [
+            "EC2Instance5",
+            "PublicDnsName"
+          ]
+        }
+      },
+      "PublicIPServerFive": {
+        "Description": "Public IP address of the newly created EC2 instance",
+        "Value": {
+          "Fn::GetAtt": [
+            "EC2Instance5",
+            "PublicIp"
+          ]
+        }
+      }
+    }
+    
+  }
